@@ -1,39 +1,32 @@
 import Theme from "../../model/Theme";
 
-const font = {
-  size: "32px",
-  family: "'League Spartan', sans-serif;",
-  weight: "700",
+const screen = {
+  mobile: "375px",
+  desktop: "1440px",
 };
 
 export const darkTheme: Theme = {
   backgroundColor: {
-    main: "",
-    screen: "",
-    toggle: "",
-    keypad: "",
+    main: "hsl(222,26%,31%)",
+    screen: "hsl(224, 36%, 15%)",
+    toggle: "hsl(223, 31%, 20%)",
+    keypad: "hsl(223, 31%, 20%)",
   },
   keysColor: {
     background: {
-      main: "",
-      secondary: "",
-      equals: "",
+      main: "hsl(30, 25%, 89%)",
+      secondary: "hsl(225, 21%, 49%)",
+      equals: "hsl(6, 63%, 50%)",
     },
     shadow: {
-      main: "",
-      secondary: "",
-      equals: "",
+      main: "hsl(224, 28%, 35%)",
+      secondary: "hsl(6, 70%, 34%)",
+      equals: "hsl(28, 16%, 65%)",
     },
   },
   textColor: {
-    top: "",
-    results: "",
-    buttons: {
-      main: "",
-      secondary: "",
-      equals: "",
-    },
+    top: "hsl(0, 0%, 100%)",
+    results: "hsl(0, 0%, 100%)",
   },
-
-  font,
+  screen,
 };

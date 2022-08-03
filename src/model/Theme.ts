@@ -20,17 +20,10 @@ export default interface Theme {
   textColor: {
     top: string;
     results: string;
-    buttons: {
-      main: string;
-      secondary: string;
-      equals: string;
-    };
   };
-
-  font: {
-    size: string;
-    family: string;
-    weight: string;
+  screen: {
+    mobile: string;
+    desktop: string;
   };
 }
 
