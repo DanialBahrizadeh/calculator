@@ -7,8 +7,8 @@ const screen = {
 
 export const darkTheme: Theme = {
   backgroundColor: {
-    main: "hsl(222,26%,31%)",
-    screen: "hsl(224, 36%, 15%)",
+    main: "hsl(224, 36%, 15%)",
+    screen: "hsl(222,26%,31%)",
     toggle: "hsl(223, 31%, 20%)",
     keypad: "hsl(223, 31%, 20%)",
   },

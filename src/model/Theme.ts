@@ -30,3 +30,9 @@ export default interface Theme {
 export interface ThemeProp {
   theme: Theme;
 }
+
+export enum ThemesEnum {
+  darkMode,
+  lightMode,
+  drucolaMode,
+}

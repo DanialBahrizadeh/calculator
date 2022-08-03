@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ThemeProp } from "../../model/Theme";
 import { containerWidth } from "./Container.styled";
-interface SwitchProps {
+interface SelectedProps {
   active: number;
 }
 export const StyledHeader = styled.header`
@@ -42,24 +42,36 @@ export const ThemeSwitch = styled.div`
     justify-content: space-between;
     padding: 0 8px;
     width: ${containerWidth / 11}px;
+    & > span {
+      cursor: pointer;
+    }
   }
 `;
 
-export const Switch = styled.div<SwitchProps>`
+export const Switch = styled.div`
   width: ${containerWidth / 11}px;
   height: 50%;
   background-color: ${({ theme }: ThemeProp) => theme.backgroundColor.toggle};
   border-radius: 50px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
   padding: 3px;
+  position: relative;
   & > span {
     border-radius: 50%;
     background-color: transparent;
     cursor: pointer;
   }
-  & > span:nth-child(${(props) => props.active}) {
-    background-color: ${({ theme }: ThemeProp) =>
-      theme.keysColor.background.equals};
-  }
+`;
+
+export const Selected = styled.span<SelectedProps>`
+  background-color: ${({ theme }: ThemeProp) =>
+    theme.keysColor.background.equals}!important;
+  position: absolute;
+  width: 19.81px;
+  height: calc(100% - 6px);
+  left: ${({ active }) => active * 19.81 + 3}px;
+  top: 3px;
+  transition-duration: 300ms;
 `;
