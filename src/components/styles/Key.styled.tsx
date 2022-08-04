@@ -21,7 +21,21 @@ const spesial = [
   { value: 8, gridValue: "eight" },
   { value: 9, gridValue: "nine" },
 ];
-export const StyledKey = styled.span<StyledKeyProps>`
+
+const boxShadowColor = (props: any) => {
+  const theme: Theme = props.theme;
+  switch (props.value) {
+    case "DEL":
+    case "RESET":
+      return theme.keysColor.shadow.secondary;
+    case "=":
+      return theme.keysColor.shadow.equals;
+    default:
+      return theme.keysColor.shadow.main;
+  }
+};
+
+export const StyledKey = styled.button<StyledKeyProps>`
   grid-area: ${({ value }) => {
     const target = spesial.find((char) => char.value == value);
     return target?.gridValue || value;
@@ -49,19 +63,7 @@ export const StyledKey = styled.span<StyledKeyProps>`
         return theme.textColor.keys;
     }
   }};
-  box-shadow: 0 5px 0 0
-    ${(props) => {
-      const theme: Theme = props.theme;
-      switch (props.value) {
-        case "DEL":
-        case "RESET":
-          return theme.keysColor.shadow.secondary;
-        case "=":
-          return theme.keysColor.shadow.equals;
-        default:
-          return theme.keysColor.shadow.main;
-      }
-    }};
+  box-shadow: 0 5px 0 0 ${boxShadowColor};
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -70,10 +72,10 @@ export const StyledKey = styled.span<StyledKeyProps>`
     switch (props.value) {
       case "RESET":
       case "=":
-        return "font-size: 1.5rem;width: 90%;margin: 0 auto;";
+        return "font-size: 1.5rem !important;width: 90%;margin: 0 auto;";
       case "DEL":
         return `
-        font-size: 1.5rem;
+        font-size: 1.5rem !important;
         width: 90px;
         height: 60px;
         margin: 0 auto;
@@ -87,4 +89,11 @@ export const StyledKey = styled.span<StyledKeyProps>`
     }
   }}
   cursor: pointer;
+  border: none;
+  font-size: inherit;
+
+  &:active {
+    transform: scale(0.9);
+    box-shadow: 0 5px 1px -1px ${boxShadowColor};
+  }
 `;
