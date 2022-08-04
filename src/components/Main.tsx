@@ -26,7 +26,7 @@ const Main: React.FC<MainProps> = ({ setResult }) => {
     "=",
   ];
   const keysElements = keys.map((key, index) => (
-    <Key value={key} key={index} />
+    <Key key={index} value={key} setResult={setResult} />
   ));
   return <StyledMain>{keysElements} </StyledMain>;
 };

@@ -91,9 +91,23 @@ export const StyledKey = styled.button<StyledKeyProps>`
   cursor: pointer;
   border: none;
   font-size: inherit;
-
+  font-weight: inherit;
+  font-family: inherit;
+  transition-duration: 150ms;
   &:active {
     transform: scale(0.9);
     box-shadow: 0 5px 1px -1px ${boxShadowColor};
+    background-color: ${(props) => {
+      const theme: Theme = props.theme;
+      switch (props.value) {
+        case "DEL":
+        case "RESET":
+          return theme.keysColor.activeBackground.secondary;
+        case "=":
+          return theme.keysColor.activeBackground.equals;
+        default:
+          return theme.keysColor.activeBackground.main;
+      }
+    }};
   }
 `;

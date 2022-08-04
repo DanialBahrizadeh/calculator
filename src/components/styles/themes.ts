@@ -23,6 +23,11 @@ export const darkTheme: Theme = {
       secondary: "hsl(224, 28%, 35%)",
       equals: "hsl(6, 70%, 34%)",
     },
+    activeBackground: {
+      main: "hsl(0, 0%, 100%)",
+      secondary: "hsl(224, 51%, 76%)",
+      equals: "hsl(6, 93%, 67%)",
+    },
   },
   textColor: {
     top: "hsl(0, 0%, 100%)",

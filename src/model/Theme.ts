@@ -16,6 +16,11 @@ export default interface Theme {
       secondary: string;
       equals: string;
     };
+    activeBackground: {
+      main: string;
+      secondary: string;
+      equals: string;
+    };
   };
   textColor: {
     top: string;
