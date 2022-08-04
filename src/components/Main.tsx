@@ -6,6 +6,7 @@ interface MainProps {
 }
 const Main: React.FC<MainProps> = ({ setResult }) => {
   const keys = [
+    "0",
     "1",
     "2",
     "3",

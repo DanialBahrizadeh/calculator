@@ -19,14 +19,15 @@ export const darkTheme: Theme = {
       equals: "hsl(6, 63%, 50%)",
     },
     shadow: {
-      main: "hsl(224, 28%, 35%)",
-      secondary: "hsl(6, 70%, 34%)",
-      equals: "hsl(28, 16%, 65%)",
+      main: "hsl(28, 16%, 65%)",
+      secondary: "hsl(224, 28%, 35%)",
+      equals: "hsl(6, 70%, 34%)",
     },
   },
   textColor: {
     top: "hsl(0, 0%, 100%)",
     results: "hsl(0, 0%, 100%)",
+    keys: "hsl(221, 14%, 31%)",
   },
   screen,
 };

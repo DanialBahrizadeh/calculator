@@ -1,5 +1,5 @@
 import styled from "styled-components";
-export const containerWidth = 720;
+export const containerWidth = 500;
 export const Container = styled.div`
   width: ${containerWidth}px;
   display: flex;

@@ -20,6 +20,7 @@ export default interface Theme {
   textColor: {
     top: string;
     results: string;
+    keys: string;
   };
   screen: {
     mobile: string;

@@ -31,32 +31,35 @@ export const Heading = styled.h1`
   align-items: center;
 `;
 
+const ThemeSwitchWidth = 60;
 export const ThemeSwitch = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 5px;
   font-size: 0.7rem;
   height: 100%;
+  width: ${ThemeSwitchWidth}px;
   & > div:first-child {
     display: flex;
     justify-content: space-between;
     padding: 0 8px;
-    width: ${containerWidth / 11}px;
+    width: 100%;
     & > span {
       cursor: pointer;
     }
   }
 `;
 
+const switchPadding = 4;
 export const Switch = styled.div`
-  width: ${containerWidth / 11}px;
-  height: 50%;
+  width: 100%;
+  height: 45%;
   background-color: ${({ theme }: ThemeProp) => theme.backgroundColor.toggle};
   border-radius: 50px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
-  padding: 3px;
+  padding: ${switchPadding}px 3px;
   position: relative;
   & > span {
     border-radius: 50%;
@@ -69,9 +72,9 @@ export const Selected = styled.span<SelectedProps>`
   background-color: ${({ theme }: ThemeProp) =>
     theme.keysColor.background.equals}!important;
   position: absolute;
-  width: 19.81px;
-  height: calc(100% - 6px);
-  left: ${({ active }) => active * 19.81 + 3}px;
-  top: 3px;
+  width: ${(ThemeSwitchWidth - 6) / 3}px;
+  height: calc(100% - ${switchPadding}px);
+  left: ${({ active }) => (active * ThemeSwitchWidth) / 3 || 3}px;
+  top: ${switchPadding / 2}px;
   transition-duration: 300ms;
 `;

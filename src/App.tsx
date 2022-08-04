@@ -18,7 +18,7 @@ const App: React.FC = () => {
       <Container>
         <Header activeTheme={activeTheme} setActiveTheme={setActiveTheme} />
         <Result result={result} />
-        <Main />
+        <Main setResult={setResult} />
       </Container>
     </ThemeProvider>
   );
