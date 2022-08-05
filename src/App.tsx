@@ -11,7 +11,7 @@ const App: React.FC = () => {
   const [activeTheme, setActiveTheme] = useState<ThemesEnum>(
     ThemesEnum.darkMode
   );
-  const [result, setResult] = useState<string>("");
+  const [result, setResult] = useState<string>("0");
   return (
     <ThemeProvider theme={darkTheme}>
       <GlobalStyles />

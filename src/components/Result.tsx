@@ -4,9 +4,25 @@ interface ResultProps {
   result: string;
 }
 const Result: React.FC<ResultProps> = ({ result }) => {
+  const numPretter = (str: string) => {
+    const value = str
+      .split(/[+ \- x /]/)
+      .map((num) => {
+        if (num === "") return;
+        return Number(num).toLocaleString();
+      })
+      .filter((r) => r !== undefined);
+    const chars = str.match(/[+ \- x /]/g);
+    const result = value.map((num, index) => {
+      return `${num}${chars && chars[index] ? chars[index] : ""}`;
+    });
+
+    console.log(chars);
+    return result;
+  };
   return (
     <StyledResult>
-      <span>{result}</span>
+      <span>{numPretter(result)}</span>
     </StyledResult>
   );
 };
