@@ -26,6 +26,7 @@ export default interface Theme {
     top: string;
     results: string;
     keys: string;
+    equalsKey?: string;
   };
   screen: {
     mobile: string;
@@ -40,5 +41,5 @@ export interface ThemeProp {
 export enum ThemesEnum {
   darkMode,
   lightMode,
-  drucolaMode,
+  draculaMode,
 }

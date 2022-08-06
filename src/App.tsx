@@ -5,7 +5,11 @@ import Result from "./components/Result";
 import Main from "./components/Main";
 import { Container } from "./components/styles/Container.styled";
 import GlobalStyles from "./components/styles/global";
-import { darkTheme } from "./components/styles/themes";
+import {
+  darkTheme,
+  draculaTheme,
+  lightTheme,
+} from "./components/styles/themes";
 import { ThemesEnum } from "./model/Theme";
 const App: React.FC = () => {
   const [activeTheme, setActiveTheme] = useState<ThemesEnum>(
@@ -13,7 +17,15 @@ const App: React.FC = () => {
   );
   const [result, setResult] = useState<string>("0");
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider
+      theme={
+        activeTheme === ThemesEnum.darkMode
+          ? darkTheme
+          : activeTheme === ThemesEnum.lightMode
+          ? lightTheme
+          : draculaTheme
+      }
+    >
       <GlobalStyles />
       <Container>
         <Header activeTheme={activeTheme} setActiveTheme={setActiveTheme} />

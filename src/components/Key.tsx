@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { StyledKey } from "./styles/Key.styled";
 
 interface KeyProps {
@@ -6,6 +7,29 @@ interface KeyProps {
 }
 
 const Key: React.FC<KeyProps> = (props) => {
+  const keyRef = useRef<HTMLButtonElement>({} as HTMLButtonElement);
+  useEffect(() => {
+    const func = (event: KeyboardEvent) => {
+      if (event.key == props.value) {
+        event.preventDefault();
+        keyRef.current.click();
+      } else if (event.key === "Enter" && props.value === "=") {
+        event.preventDefault();
+        keyRef.current.click();
+      } else if (event.key === "*" && props.value === "x") {
+        event.preventDefault();
+        keyRef.current.click();
+      } else if (event.key === "Backspace" && props.value === "DEL") {
+        event.preventDefault();
+        keyRef.current.click();
+      }
+    };
+    window.addEventListener("keydown", func);
+
+    return () => {
+      window.removeEventListener("keydown", func);
+    };
+  }, []);
   const hundleClick = () => {
     props.setResult((prevValue) => {
       const specialChars = ["DEL", "RESET", "="];
@@ -14,7 +38,7 @@ const Key: React.FC<KeyProps> = (props) => {
       if (!specialChars.includes(value) && !actionsChars.includes(value)) {
         if (value === "0" && prevValue === "0") {
           return "0";
-        } else if (value !== "0" && prevValue === "0") {
+        } else if (value !== "0" && prevValue == "0") {
           return value;
         } else {
           return `${prevValue}${value}`;
@@ -29,38 +53,14 @@ const Key: React.FC<KeyProps> = (props) => {
         } else if (value === "DEL") {
           return prevValue.slice(0, -1);
         } else {
-          return String(eval(prevValue));
+          return String(eval(prevValue.replaceAll("x", "*")));
         }
       }
     });
   };
 
-  /**
-
-  const str = "12345+123456/1234567x55555";
-    const value = str.split(/\D/g).map(item => item.split("").reverse().map((num,index) => {
-      if(index !== 0 && index % 3 === 0 && index !== str.length) {
-        return `${num},`;
-      }
-      return num;
-    }).reverse().join("")).join("^")
-
-    console.log(value)
-
-  const chars = str.split(/\d+/).filter(char => char !== "")
-  let result= "";
-  let index = 0;
-  for(let i = 0; i < value.length; i++) {
-    if(value[i] === "^") {
-      result += chars[index]
-      index++
-    } else result += value[i]
-  }
-  console.log(result)
-   */
-
   return (
-    <StyledKey onClick={hundleClick} value={props.value}>
+    <StyledKey ref={keyRef} onClick={hundleClick} value={props.value}>
       {props.value}
     </StyledKey>
   );

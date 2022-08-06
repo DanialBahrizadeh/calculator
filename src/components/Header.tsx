@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = (props) => {
             <span onClick={toggleTheme} data-theme={ThemesEnum.lightMode}>
               2
             </span>
-            <span onClick={toggleTheme} data-theme={ThemesEnum.drucolaMode}>
+            <span onClick={toggleTheme} data-theme={ThemesEnum.draculaMode}>
               3
             </span>
           </div>
@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = (props) => {
             ></span>
             <span
               onClick={toggleTheme}
-              data-theme={ThemesEnum.drucolaMode}
+              data-theme={ThemesEnum.draculaMode}
             ></span>
           </Switch>
         </ThemeSwitch>

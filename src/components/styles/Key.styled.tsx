@@ -57,8 +57,9 @@ export const StyledKey = styled.button<StyledKeyProps>`
     switch (props.value) {
       case "DEL":
       case "RESET":
-      case "=":
         return "#fff";
+      case "=":
+        return theme.textColor.equalsKey || "#fff";
       default:
         return theme.textColor.keys;
     }

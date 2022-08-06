@@ -12,12 +12,13 @@ const Result: React.FC<ResultProps> = ({ result }) => {
         return Number(num).toLocaleString();
       })
       .filter((r) => r !== undefined);
+
     const chars = str.match(/[+ \- x /]/g);
+
     const result = value.map((num, index) => {
       return `${num}${chars && chars[index] ? chars[index] : ""}`;
     });
 
-    console.log(chars);
     return result;
   };
   return (
