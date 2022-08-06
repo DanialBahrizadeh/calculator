@@ -71,9 +71,9 @@ export const lightTheme: Theme = {
 
 export const draculaTheme: Theme = {
   backgroundColor: {
-    main: "hsl(268, 75%, 9%)",
-    screen: "hsl(268, 71%, 12%)",
-    toggle: "hsl(268, 71%, 12%)",
+    main: "hsl(268, 71%, 12%)",
+    screen: "hsl(268, 75%, 9%)",
+    toggle: "hsl(268, 75%, 9%)",
     keypad: "hsl(268, 71%, 12%)",
   },
   keysColor: {

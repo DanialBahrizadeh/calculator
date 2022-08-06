@@ -38,6 +38,8 @@ const Key: React.FC<KeyProps> = (props) => {
       if (!specialChars.includes(value) && !actionsChars.includes(value)) {
         if (value === "0" && prevValue === "0") {
           return "0";
+        } else if (value === "." && prevValue === "0") {
+          return "0.";
         } else if (value !== "0" && prevValue == "0") {
           return value;
         } else {

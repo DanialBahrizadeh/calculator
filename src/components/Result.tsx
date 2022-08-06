@@ -9,7 +9,12 @@ const Result: React.FC<ResultProps> = ({ result }) => {
       .split(/[+ \- x /]/)
       .map((num) => {
         if (num === "") return;
-        return Number(num).toLocaleString();
+        let dot = "";
+        if (num[num.length - 1] === "." && num[num.length - 2] !== ".") {
+          dot = ".";
+        }
+
+        return `${Number(num).toLocaleString()}${dot}`;
       })
       .filter((r) => r !== undefined);
 
