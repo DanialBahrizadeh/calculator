@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Theme from "../../model/Theme";
+import Theme, { ThemeProp } from "../../model/Theme";
 
 interface StyledKeyProps {
   value: string;
@@ -70,6 +70,8 @@ export const StyledKey = styled.button<StyledKeyProps>`
   justify-content: center;
   align-items: center;
   ${(props) => {
+    const width = "100px";
+    const height = "60px";
     switch (props.value) {
       case "RESET":
       case "=":
@@ -77,14 +79,14 @@ export const StyledKey = styled.button<StyledKeyProps>`
       case "DEL":
         return `
         font-size: 1.5rem !important;
-        width: 90px;
-        height: 60px;
+        width: ${width};
+        height: ${height};
         margin: 0 auto;
         `;
       default:
         return `
-        width: 100px;
-        height: 60px;
+        width: ${width};
+        height: ${height};
         margin: 0 auto;
       `;
     }
@@ -110,5 +112,34 @@ export const StyledKey = styled.button<StyledKeyProps>`
           return theme.keysColor.activeBackground.main;
       }
     }};
+  }
+
+  @media (max-width: ${({ theme }: ThemeProp) => theme.screen.mobile}) {
+    ${(props) => {
+      const width = 60;
+      const height = 60;
+      const fontSize = 1.3;
+      switch (props.value) {
+        case "RESET":
+        case "=":
+          return `font-size: ${fontSize}rem !important;width: 90%;margin: 0 auto; width: ${
+            width * 2 + 15
+          }px;`;
+        case "DEL":
+          return `
+        font-size: ${fontSize}rem !important;
+        width: ${width}px;
+        height: ${height}px;
+        margin: 0 auto;
+        `;
+        default:
+          return `
+        width: ${width}px;
+        height: ${height}px;
+        margin: 0 auto;
+      `;
+      }
+    }}
+    border-radius: 5px;
   }
 `;

@@ -10,4 +10,8 @@ export const StyledResult = styled.div`
   font-size: 36px;
   height: 100px;
   padding-right: 25px;
+  width: 100%;
+  @media (max-width: ${({ theme }: ThemeProp) => theme.screen.mobile}) {
+    width: 90%;
+  }
 `;

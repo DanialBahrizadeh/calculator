@@ -19,7 +19,16 @@ export const StyledHeader = styled.header`
       justify-content: center;
       align-items: center;
       margin-top: 12px;
+      @media (max-width: ${({ theme }: ThemeProp) => theme.screen.mobile}) {
+        font-size: 0.75rem;
+        letter-spacing: 0.08rem;
+        margin-top: 22px;
+      }
     }
+  }
+
+  @media (max-width: ${({ theme }: ThemeProp) => theme.screen.mobile}) {
+    width: 90%;
   }
 `;
 
@@ -47,6 +56,9 @@ export const ThemeSwitch = styled.div`
     & > span {
       cursor: pointer;
     }
+  }
+  @media (max-width: ${({ theme }: ThemeProp) => theme.screen.mobile}) {
+    height: 125%;
   }
 `;
 
