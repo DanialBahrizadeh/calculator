@@ -13,7 +13,7 @@ export const StyledMain = styled.main`
     "RESET RESET equals equals ";
   justify-content: space-evenly;
   background-color: ${({ theme }: ThemeProp) => theme.backgroundColor.keypad};
-  margin-top: 25px;
+  /* margin-top: 25px; */
   row-gap: 25px;
   padding: 15px;
   border-radius: 8px;

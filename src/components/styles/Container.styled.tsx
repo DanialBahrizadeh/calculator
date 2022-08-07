@@ -4,5 +4,5 @@ export const Container = styled.div`
   width: ${containerWidth}px;
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
+  row-gap: 20px;
 `;

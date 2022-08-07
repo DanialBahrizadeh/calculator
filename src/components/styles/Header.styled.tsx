@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ThemeProp } from "../../model/Theme";
-import { containerWidth } from "./Container.styled";
 interface SelectedProps {
   active: number;
 }
@@ -13,13 +12,13 @@ export const StyledHeader = styled.header`
 
   & > div {
     display: flex;
-    column-gap: 35px;
+    column-gap: 25px;
     & > h2 {
-      font-size: 0.85rem;
+      font-size: 0.65rem;
       display: flex;
       justify-content: center;
-      align-items: end;
-      margin-bottom: 9px;
+      align-items: center;
+      margin-top: 12px;
     }
   }
 `;
@@ -29,6 +28,7 @@ export const Heading = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 5px;
 `;
 
 const ThemeSwitchWidth = 60;

@@ -11,11 +11,14 @@ import {
   lightTheme,
 } from "./components/styles/themes";
 import { ThemesEnum } from "./model/Theme";
+import useLocalStorage from "./hooks/uselocalStorage";
 const App: React.FC = () => {
-  const [activeTheme, setActiveTheme] = useState<ThemesEnum>(
-    ThemesEnum.darkMode
-  );
-  const [result, setResult] = useState<string>("0");
+  const [activeTheme, setActiveTheme] = useLocalStorage<ThemesEnum>(() => {
+    return (
+      JSON.parse(localStorage.getItem("theme") as string) || ThemesEnum.darkMode
+    );
+  }, "theme");
+  const [result, setResult] = useState<string>("399981");
   return (
     <ThemeProvider
       theme={
